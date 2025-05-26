@@ -50,9 +50,10 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
+    allow_origins=["https://backend-kappa-lilac-49.vercel.app/"],
+    allow_methods=['GET', 'POST', 'OPTIONS'],
     allow_headers=["*"],
+    allow_credentials=True
 )
 
 class City(BaseModel):
