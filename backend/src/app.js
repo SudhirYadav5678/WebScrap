@@ -24,6 +24,8 @@ app.use(express.static('data'))
 
 //router
 app.use("/api/v1/", eventsInCity)
-
+app.get("/",(req, res)=>{
+    res.json("Server is live by Sudhir");
+})
 
 export { app }
