@@ -16,7 +16,7 @@ const eventsFindInCity = async function (req, res) {
     try {
 
         // Call FastAPI backend
-        const response = await fetch('http://https://vercel.com/sudhiryadav5678s-projects/scrap/fetch-city-events', {
+        const response = await fetch('https://scrap-gray.vercel.app/fetch-city-events', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ const eventsFindInCity = async function (req, res) {
         // const response = await fetch(`https://insider.in/all-events-in-${city}`)
         // if (!response.ok) {
         //     throw new Error(`FastAPI returned status ${response.status}`);
-        // };
+        // };https://scrap-gray.vercel.app/
         // console.log(response.data);
         // const $ = cheerio.load(response.data);
         // const event =$("card-list-item");
