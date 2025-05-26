@@ -15,7 +15,7 @@ function App() {
     if (!city.trim()) return alert('Please enter a city')
     try {
       setLoading(true)
-      const response = await axios.post('http://localhost:3000/api/v1/eventsInCity', { city })
+      const response = await axios.post('http://https://backend-eight-plum-83.vercel.app//api/v1/eventsInCity', { city })
       setEvents(response?.data?.data)
     } catch (error) {
       alert("Please try again")

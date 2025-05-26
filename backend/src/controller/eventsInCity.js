@@ -16,7 +16,7 @@ const eventsFindInCity = async function (req, res) {
     try {
 
         // Call FastAPI backend
-        const response = await fetch('http://localhost:8000/fetch-city-events', {
+        const response = await fetch('http://https://vercel.com/sudhiryadav5678s-projects/scrap/fetch-city-events', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
