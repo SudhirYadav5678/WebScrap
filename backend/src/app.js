@@ -12,10 +12,10 @@ dotenv.config({
 const app = express();
 
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
-    credentials: true,
-
-}))
+  origin: 'https://web-scrap-weld.vercel.app', 
+  methods: ['GET', 'POST', 'OPTIONS'],
+  credentials: true // if using cookies or HTTP auth
+}));
 
 app.use(json({ limit: "100kb" }))
 app.use(urlencoded({ extended: true, limit: "16kb" }))
