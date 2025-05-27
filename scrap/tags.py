@@ -17,7 +17,7 @@ client = MongoClient(MONGO_URI)
 db = client[DB_NAME]
 collection = db[COLLECTION_NAME]
 
-def all_events(city: str) -> str:
+async def all_events(city: str) -> str:
     print("📂 Parsing events for city:", city)
     events = []
 

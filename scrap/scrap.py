@@ -6,7 +6,7 @@ session = requests.Session()
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 
 
-def fetchAndWrite(url, path):
+async def fetchAndWrite(url, path):
     time.sleep(2)
     try:
         r = requests.get(url)
