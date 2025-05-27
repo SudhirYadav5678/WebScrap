@@ -16,9 +16,9 @@ function App() {
     try {
       setLoading(true)
       const response = await axios.post('https://backend-kappa-lilac-49.vercel.app/api/v1/eventsInCity', { city },
-  {
-    withCredentials: true,
-  })
+        {
+          withCredentials: true,
+        })
       setEvents(response?.data?.data)
     } catch (error) {
       alert("Please try again")
@@ -29,16 +29,18 @@ function App() {
     }
   }
 
-  const handleUserEvents = async()=>(setShowModal(true));
+  const handleUserEvents = async () => (setShowModal(true));
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post('https://backend-kappa-lilac-49.vercel.app/api/v1/addUser', { email });
-      
-      if(res.data.success===true){
+      const res = await axios.post('https://backend-kappa-lilac-49.vercel.app/api/v1/addUser', { email }, {
+        withCredentials: true,
+      });
+
+      if (res.data.success === true) {
         console.log('Email submitted:', email);
         console.log(selectedLink);
-        
+
         window.open(`https://www.district.in/events/${selectedLink}`, '_blank');
       }
       console.log('Email submitted:', email);
@@ -51,7 +53,7 @@ function App() {
     }
   }
 
-  
+
 
 
   return (

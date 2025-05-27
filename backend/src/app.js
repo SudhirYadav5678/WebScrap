@@ -18,9 +18,11 @@ const allowedOrigin = 'https://web-scrap-weld.vercel.app';
 app.use(cors({
   origin: allowedOrigin,
   credentials: true,
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-// Handle preflight
+// Required for preflight
 app.options('*', cors({
   origin: allowedOrigin,
   credentials: true
