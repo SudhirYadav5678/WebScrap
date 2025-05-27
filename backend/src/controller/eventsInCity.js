@@ -16,7 +16,7 @@ const eventsFindInCity = async function (req, res) {
     try {
 
         // Call FastAPI backend
-        const response = await fetch('https://scrap-gray.vercel.app/fetch-city-events', {
+        const response = await fetch('https://webscrappython.onrender.com/fetch-city-events', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

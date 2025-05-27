@@ -50,7 +50,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['https://backend-kappa-lilac-49.vercel.app/'],
+    allow_origins=['https://webscrapbackend-8gos.onrender.com/'],
     allow_methods=['GET', 'POST', 'OPTIONS'],
     allow_headers=["*"],
     allow_credentials=True
