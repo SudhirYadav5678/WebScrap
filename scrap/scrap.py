@@ -8,12 +8,11 @@ headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleW
 
 
 
-def fetchAndWrite(url: str, path: str):
+def fetchAndWrite(url: str,path):
     try:
-        response = requests.get(url, timeout=10)
-        response.raise_for_status()
-        with open(path, "w", encoding="utf-8") as f:
-            f.write(response.text)
+        r = requests.get(url)
+        with open(path,"w") as f:
+            f.write(r.text) # Raise an error for bad responses
         print(f"✅ HTML fetched and written to {path}")
         return True
     except requests.RequestException as e:
