@@ -68,7 +68,7 @@ async def all_events(city: str) -> str:
         await collection.insert_many(events)
         print(f"✅ Inserted {len(events)} events into MongoDB.")
 
-    #print("events--------->",events)
+    print("events--------->",events)
     return events
 
 

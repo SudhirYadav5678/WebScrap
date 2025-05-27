@@ -36,14 +36,16 @@ async def show_data(data: City):
     path = f"data/events/{city}.html"
 
     try:
-        res = await fetchAndWrite(url,path)
-        if res== False:
-            return {"status": "error", "message": f"❌ Error in fetchAndWrite "}
+        res =  fetchAndWrite(url,path)
+        print("res------->", res)
+        if not res:
+            return {"status": "error", "message": f"❌ Error in fetchAndWrite for {city}"}
     except Exception as e:
         return {"status": "error", "message": f"❌ Error in fetchAndWrite: {str(e)} "}
     
     try:
         city_data = await all_events(city)
+        print("city_data------>", city_data)
     except Exception as e:
         return {"status": "error", "message": f"❌ Error in all_events: {str(e)}"}
         #print("city_data------>",city_data)
