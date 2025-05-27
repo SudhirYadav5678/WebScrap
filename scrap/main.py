@@ -26,7 +26,7 @@ class City(BaseModel):
     city: str
 
 @app.post("/fetch-city-events")
-def show_data(data: City):
+async def show_data(data: City):
     city = data.city
     #print("city ------>",city)
     url = f"https://insider.in/all-events-in-{city}"
