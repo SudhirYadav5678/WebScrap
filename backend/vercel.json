@@ -12,7 +12,7 @@
       "dest": "src/index.js",
       "methods":["GET","POST","PUT"],
       "headers":{
-        "Access-Control-Allow-Origin" : "https://web-scrap-ten.vercel.app"
+        "Access-Control-Allow-Origin" : "https://web-scrap-pi.vercel.app"
       }
     }
   ]
