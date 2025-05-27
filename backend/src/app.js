@@ -12,26 +12,12 @@ dotenv.config({
 const app = express();
 
 
-
-const allowedOrigin = 'https://web-scrap-pi.vercel.app';
-
 app.use(cors({
-  origin: allowedOrigin,
-  credentials: true,
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
-
-// Manual CORS preflight handler for all routes
-app.options('*', (req, res) => {
-  res.header('Access-Control-Allow-Origin', allowedOrigin);
-  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.sendStatus(204);
-});
-
-
+    origin: process.env.CORS_ORIGIN || '*',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}))
 app.use(json({ limit: "100kb" }))
 app.use(urlencoded({ extended: true, limit: "16kb" }))
 app.use(express.static('data'))

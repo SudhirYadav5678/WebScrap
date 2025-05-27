@@ -8,11 +8,13 @@ dotenv.config({
     path: './.env'
 })
 
-dbConnect().catch((err) => {
-    console.log("Server connection failed !!! ", err);
-});
+dbConnect().then(() => {
+    app.listen(process.env.PORT || 3000, () => {
+        console.log(`Server is running on port ${process.env.PORT || 3000}`);
+    }   );
+    console.log("Database connected successfully");
+}   ).catch((err) => {
+    console.error("Database connection failed:", err);
+}   );
 
-// For Vercel: export the Express app as default (do not call listen)
 export default app;
-
-// For local development, you can use a separate script to call app.listen if needed.
