@@ -7,7 +7,6 @@ headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleW
 
 
 async def fetchAndWrite(url, path):
-    time.sleep(2)
     try:
         r = requests.get(url)
         r.raise_for_status()

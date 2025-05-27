@@ -10,16 +10,31 @@ import jsons
 
 app = FastAPI()
 
-allow_origins = os.getenv("CORS_ORIGINS", "*").split(",")
+origins = [
+    "http://localhost:5173",
+    "http://localhost:5000",
+    "https://web-scrap-pi.vercel.app",
+    "https://web-scrap-f19a.vercel.app"
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allow_origins,
-    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_origins=origins,
     allow_credentials=True,
-    allow_headers=["Content-Type", "Authorization"],  # Fix: should be a flat list
-    expose_headers=["Content-Type", "Authorization"]
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
+
+# allow_origins = os.getenv("CORS_ORIGINS", "*").split(",")
+
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=allow_origins,
+#     allow_methods=["GET", "POST", "PUT", "DELETE"],
+#     allow_credentials=True,
+#     allow_headers=["Content-Type", "Authorization"],  # Fix: should be a flat list
+#     expose_headers=["Content-Type", "Authorization"]
+# )
 
 
 class City(BaseModel):

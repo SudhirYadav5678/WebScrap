@@ -15,8 +15,8 @@ function App() {
     if (!city.trim()) return alert('Please enter a city')
     try {
       setLoading(true)
-      //const response = await axios.post('http://localhost:5000/api/v1/eventsInCity', { city },
-      const response = await axios.post('https://web-scrap-f19a.vercel.app/api/v1/eventsInCity', { city },
+      const response = await axios.post('http://localhost:5000/api/v1/eventsInCity', { city },
+      //const response = await axios.post('https://web-scrap-f19a.vercel.app/api/v1/eventsInCity', { city },
         {
           withCredentials: true,
         })
