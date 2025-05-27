@@ -33,8 +33,8 @@ async def show_data(data: City):
     path = f"data/events/{city}.html"
 
     try:
-        fetchAndWrite(url, path)
-        city_data = all_events(city)
+        await fetchAndWrite(url, path)
+        city_data = await all_events(city)
         #print("city_data------>",city_data)
         city_data_json = jsons.dump(city_data)
         #print("city_data_json------>", city_data_json)
