@@ -13,7 +13,7 @@ const app = express();
 
 
 
-const allowedOrigin = 'https://web-scrap-pi.vercel.app/';
+const allowedOrigin = 'https://web-scrap-pi.vercel.app';
 
 app.use(cors({
   origin: allowedOrigin,
