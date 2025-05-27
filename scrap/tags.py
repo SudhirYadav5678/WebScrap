@@ -1,6 +1,7 @@
 import os
 import json
 from dotenv import load_dotenv
+from motor.motor_asyncio import AsyncIOMotorClient
 from pymongo import MongoClient
 from bs4 import BeautifulSoup
 
@@ -13,7 +14,7 @@ DB_NAME = os.getenv("DB_NAME")
 COLLECTION_NAME = os.getenv("COLLECTION_NAME")
 
 
-client = MongoClient(MONGO_URI)
+client = AsyncIOMotorClient(MONGO_URI)
 db = client[DB_NAME]
 collection = db[COLLECTION_NAME]
 
@@ -23,7 +24,7 @@ async def all_events(city: str) -> str:
 
     try:
         with open(f"data/events/{city}.html", "r", encoding="utf-8") as f:
-            raw_html = await f.read()
+            raw_html = f.read()
     except FileNotFoundError:
         print(f"❌ File for city '{city}' not found.")
         return json.dumps([])
@@ -32,9 +33,9 @@ async def all_events(city: str) -> str:
     pretty_html = soup.prettify()
 
     with open(f"data/events/{city}_pretty.html", "w", encoding="utf-8") as f:
-        await f.write(pretty_html)
+        f.write(pretty_html)
     print(f"📝 Prettified HTML saved to data/events/{city}_pretty.html")
-    soup = await BeautifulSoup(pretty_html, 'html5lib')
+    soup = BeautifulSoup(pretty_html, 'html5lib')
 
     event_cards = soup.select('div[data-ref="event_card"]')
 
