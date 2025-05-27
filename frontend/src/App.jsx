@@ -15,7 +15,10 @@ function App() {
     if (!city.trim()) return alert('Please enter a city')
     try {
       setLoading(true)
-      const response = await axios.post('https://backend-kappa-lilac-49.vercel.app/api/v1/eventsInCity', { city })
+      const response = await axios.post('https://backend-kappa-lilac-49.vercel.app/api/v1/eventsInCity', { city },
+  {
+    withCredentials: true,
+  })
       setEvents(response?.data?.data)
     } catch (error) {
       alert("Please try again")

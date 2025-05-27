@@ -13,8 +13,16 @@ const app = express();
 
 
 
+const allowedOrigin = 'https://web-scrap-weld.vercel.app';
+
 app.use(cors({
-  origin:'https://web-scrap-weld.vercel.app',
+  origin: allowedOrigin,
+  credentials: true,
+}));
+
+// Handle preflight
+app.options('*', cors({
+  origin: allowedOrigin,
   credentials: true
 }));
 
