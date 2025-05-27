@@ -54,7 +54,6 @@ app.add_middleware(
         'https://backend-kappa-lilac-49.vercel.app',
         'https://web-scrap-pi.vercel.app',
         'http://localhost:3000',
-        '*',  # Allow all for testing, remove in production
     ],
     allow_methods=['*'],
     allow_headers=['*'],
