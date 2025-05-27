@@ -12,19 +12,22 @@ dotenv.config({
 const app = express();
 
 const allowedOrigins = [
-  'https://web-scrap-weld.vercel.app/',
-  'https://web-scrap-git-main-sudhiryadav5678s-projects.vercel.app/',
+  'https://web-scrap-weld.vercel.app',
+  'https://web-scrap-git-main-sudhiryadav5678s-projects.vercel.app',
 ];
+
 app.use(cors({
   origin: function (origin, callback) {
+    console.log('CORS check for origin:', origin);
     if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, origin); // Allow request
+      callback(null, origin);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true
 }));
+
 
 app.use(json({ limit: "100kb" }))
 app.use(urlencoded({ extended: true, limit: "16kb" }))
