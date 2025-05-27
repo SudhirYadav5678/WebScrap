@@ -50,9 +50,9 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['https://webscrapbackend-8gos.onrender.com/'],
-    allow_methods=['GET', 'POST', 'OPTIONS'],
-    allow_headers=["*"],
+    allow_origins=['https://your-vercel-site.vercel.app'],
+    allow_methods=['*'],
+    allow_headers=['*'],
     allow_credentials=True
 )
 

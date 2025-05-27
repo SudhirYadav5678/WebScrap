@@ -13,7 +13,7 @@ const app = express();
 
 
 
-const allowedOrigin = 'https://web-scrap-weld.vercel.app';
+const allowedOrigin = 'https://your-vercel-site.vercel.app';
 
 app.use(cors({
   origin: allowedOrigin,
@@ -22,7 +22,6 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
-// Required for preflight
 app.options('*', cors({
   origin: allowedOrigin,
   credentials: true
