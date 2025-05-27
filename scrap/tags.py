@@ -23,7 +23,7 @@ async def all_events(city: str) -> str:
 
     try:
         with open(f"data/events/{city}.html", "r", encoding="utf-8") as f:
-            raw_html = f.read()
+            raw_html = await f.read()
     except FileNotFoundError:
         print(f"❌ File for city '{city}' not found.")
         return json.dumps([])
@@ -32,9 +32,9 @@ async def all_events(city: str) -> str:
     pretty_html = soup.prettify()
 
     with open(f"data/events/{city}_pretty.html", "w", encoding="utf-8") as f:
-        f.write(pretty_html)
+        await f.write(pretty_html)
     print(f"📝 Prettified HTML saved to data/events/{city}_pretty.html")
-    soup = BeautifulSoup(pretty_html, 'html5lib')
+    soup = await BeautifulSoup(pretty_html, 'html5lib')
 
     event_cards = soup.select('div[data-ref="event_card"]')
 
@@ -63,8 +63,8 @@ async def all_events(city: str) -> str:
     print(f"✅ Parsed {len(events)} events for city: {city}")
 
     if events:
-        collection.delete_many({"City": city})
-        collection.insert_many(events)
+        await collection.delete_many({"City": city})
+        await collection.insert_many(events)
         print(f"✅ Inserted {len(events)} events into MongoDB.")
 
     #print("events--------->",events)
