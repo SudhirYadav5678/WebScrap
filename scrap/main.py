@@ -50,7 +50,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['https://your-vercel-site.vercel.app'],
+    allow_origins=['https://backend-mu-three-56.vercel.app/'],
     allow_methods=['*'],
     allow_headers=['*'],
     allow_credentials=True
