@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 load_dotenv()
 
-
+# remove the  MongoDB
 MONGO_URI = os.getenv("MONGO_URI")
 DB_NAME = os.getenv("DB_NAME")
 COLLECTION_NAME = os.getenv("COLLECTION_NAME")
@@ -62,7 +62,8 @@ async def all_events(city: str) -> str:
             print("⚠️ Error processing card:", e)
 
     print(f"✅ Parsed {len(events)} events for city: {city}")
-
+    os.remove(f"data/events/{city}.html")
+    os.remove(f"data/events/{city}_pretty.html")
     if events:
         await collection.delete_many({"City": city})
         await collection.insert_many(events)
